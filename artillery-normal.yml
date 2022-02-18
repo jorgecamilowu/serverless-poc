@@ -1,0 +1,9 @@
+config:
+  target: "https://74o8a5jk8b.execute-api.us-east-1.amazonaws.com/Prod"
+  phases:
+    - duration: 120
+      arrivalRate: 10
+scenarios:
+  - flow:
+      - get:
+          url: "/"
