@@ -9,12 +9,12 @@ export const postProcessor = () => {
     // Your middleware logic
     if (
       request.response === null ||
-      [null, undefined].includes(request.response.data)
+      [null, undefined].includes(request.response.body)
     ) {
       return;
     }
 
-    const salutations = (request.response.data as string[]).map(
+    const salutations = (request.response.body.data as string[]).map(
       (name) => `Hello ${name}!`
     );
 

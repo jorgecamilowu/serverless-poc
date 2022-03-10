@@ -45,8 +45,7 @@ const getByIdHandler = (docClient) => (event) => __awaiter(void 0, void 0, void 
     console.timeEnd("second query");
     const response = {
         statusCode: 200,
-        body: JSON.stringify(item),
-        data: ["Foo", "Bar", "FooBar"],
+        body: Object.assign(Object.assign({}, item), { data: ["Foo", "Bar", "FooBar"] }),
     };
     // All log statements are written to CloudWatch
     console.info(`response from: ${event.path} statusCode: ${response.statusCode} body: ${response.body}`);

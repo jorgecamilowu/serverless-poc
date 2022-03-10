@@ -15,10 +15,10 @@ const postProcessor = () => {
         console.time("query");
         // Your middleware logic
         if (request.response === null ||
-            [null, undefined].includes(request.response.data)) {
+            [null, undefined].includes(request.response.body)) {
             return;
         }
-        const salutations = request.response.data.map((name) => `Hello ${name}!`);
+        const salutations = request.response.body.data.map((name) => `Hello ${name}!`);
         console.timeEnd("query");
         request.response.body = JSON.stringify(Object.assign(Object.assign({}, request.response.body), { data: salutations }));
     });

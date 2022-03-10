@@ -5,8 +5,8 @@ describe("", () => {
     const response = {
       body: {
         message: "foo",
+        data: ["foo", "bar", "foobar"],
       },
-      data: ["foo", "bar", "foobar"],
     };
     const result = await postProcessor().after({
       context: {} as any,

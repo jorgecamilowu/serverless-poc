@@ -46,8 +46,10 @@ export const getByIdHandler =
 
     const response = {
       statusCode: 200,
-      body: JSON.stringify(item),
-      data: ["Foo", "Bar", "FooBar"],
+      body: {
+        ...item,
+        data: ["Foo", "Bar", "FooBar"],
+      },
     };
 
     // All log statements are written to CloudWatch
