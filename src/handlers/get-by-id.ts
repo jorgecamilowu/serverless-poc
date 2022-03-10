@@ -29,8 +29,20 @@ export const getByIdHandler =
       Key: { id: id },
     };
 
+    console.time("first query");
     const data = await docClient.get(params).promise();
     const item = data.Item;
+    console.timeEnd("first query");
+
+    await new Promise((resolve) => {
+      setTimeout(() => {
+        resolve("ok");
+      }, 100);
+    });
+
+    console.time("second query");
+    const dataScan = await docClient.scan(params).promise();
+    console.timeEnd("second query");
 
     const response = {
       statusCode: 200,
